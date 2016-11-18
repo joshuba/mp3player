@@ -24,4 +24,8 @@ public class ViewController {
     public void skipHandler(){
         mp3Player.skip();
     }
+
+    public void previousHandler(){
+        mp3Player.previous();
+    }
 }

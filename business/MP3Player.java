@@ -26,11 +26,20 @@ public class MP3Player {
 
     public void play() {
 
-        if (player == null) {
+        if (player == null){
+
             player = simpleMinim.loadMP3File(aktTrack.getPath());
         }
         player.play();
 
+    }
+
+    public void play(Track t){
+
+        simpleMinim.stop();
+
+        setAktTrack(t);
+        player.play();
     }
 
     //MP3Player beenden
@@ -42,18 +51,33 @@ public class MP3Player {
         player.pause();
     }
 
-    public void setPlay() {
-        play = !play;
-    }
-    public boolean getPlay(){ return play; }
-
     public void skip() {
         aktTrack = playlist.getNext();
-        play();
-    }
+            if(play) {
+                play(aktTrack);
+            }else{
+                setAktTrack(aktTrack);
+            }
+        }
 
     public void previous() {
         aktTrack = playlist.getPrev();
-        play();
+        if(play) {
+            play(aktTrack);
+        }else{
+            setAktTrack(aktTrack);
+        }
     }
+
+    private void setAktTrack(Track t){
+        aktTrack = t;
+        player = simpleMinim.loadMP3File(t.getPath());
+    }
+
+    public void setPlay() {
+        play = !play;
+    }
+
+    public boolean getPlay(){ return play; }
+
 }

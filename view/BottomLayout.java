@@ -85,6 +85,7 @@ public class BottomLayout extends VBox {
     private void initHandler(){
         playPause.setOnAction((e) -> viewController.playHandler());
         skip.setOnAction((e) -> viewController.skipHandler());
+        previous.setOnAction((e) -> viewController.previousHandler());
     }
 
 
