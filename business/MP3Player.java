@@ -36,6 +36,8 @@ public class MP3Player {
         }
     }
 
+	//Kommentar
+	
     private void pause(){
         player.pause();
     }
