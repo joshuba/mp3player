@@ -10,6 +10,8 @@ import mp3player.view.MP3PlayerLayout;
  */
 public class Main extends Application {
 
+    //efsdfsdfsd
+
     private Stage primaryStage;
     private final double border = 30.0;
     private final double minWidth = 275;
