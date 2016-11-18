@@ -24,32 +24,35 @@ public class MP3Player {
         aktTrack = playlist.get();
     }
 
-    public void play(){
-        if(play){
-            pause();
+    public void play() {
 
-        }else{
-            if(player == null){
-                player = simpleMinim.loadMP3File(aktTrack.getPath());
-            }
-            player.play();
+        if (player == null) {
+            player = simpleMinim.loadMP3File(aktTrack.getPath());
         }
+        player.play();
+
     }
 
-    private void pause(){
+    //MP3Player beenden
+    public void stop() {
+        simpleMinim.stop();
+    }
+
+    public void pause() {
         player.pause();
     }
 
-    public void setPlay(){
+    public void setPlay() {
         play = !play;
     }
+    public boolean getPlay(){ return play; }
 
-    public void next(){
+    public void skip() {
         aktTrack = playlist.getNext();
         play();
     }
 
-    public void previous(){
+    public void previous() {
         aktTrack = playlist.getPrev();
         play();
     }

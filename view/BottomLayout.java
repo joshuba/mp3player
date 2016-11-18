@@ -15,9 +15,15 @@ import mp3player.business.MP3Player;
  */
 public class BottomLayout extends VBox {
     private Button playPause;
+    private Button skip;
+    private Button previous;
+    private Button shuffle;
+    private Button playlists;
+
+
     private ViewController viewController;
 
-    public BottomLayout(double border, MP3Player mp3Player,ViewController viewController) {
+    public BottomLayout(double border,ViewController viewController) {
         super();
         this.viewController = viewController;
 
@@ -40,12 +46,12 @@ public class BottomLayout extends VBox {
 
         //controlButtons erstellen
         HBox controlBar = new HBox();
-        Button skipBack = new Button("<<");
+        previous = new Button("<<");
         playPause = new Button("|>");
-        Button skip = new Button(">>");
+        skip = new Button(">>");
 
         //controlButtons
-        controlBar.getChildren().addAll(skipBack,playPause,skip);
+        controlBar.getChildren().addAll(previous,playPause,skip);
 
         //ControlButtons stylen
         controlBar.setSpacing(30);
@@ -55,8 +61,8 @@ public class BottomLayout extends VBox {
         //Buttonleiste erstellen
         BorderPane buttonBar = new BorderPane();
 
-        Button shuffle  = new Button("~~");
-        Button playlists = new Button("**");
+        shuffle  = new Button("~~");
+        playlists = new Button("**");
 
         //Buttonleiste stylen
         buttonBar.setPadding(new Insets(border));
@@ -77,8 +83,8 @@ public class BottomLayout extends VBox {
     }
 
     private void initHandler(){
-        playPause.setOnAction((ActionEvent e) -> viewController.playHandler());
-
+        playPause.setOnAction((e) -> viewController.playHandler());
+        skip.setOnAction((e) -> viewController.skipHandler());
     }
 
 

@@ -12,11 +12,16 @@ public class ViewController {
         this.mp3Player = mp3Player;
     }
 
-    //dateiÄnderung
-
     public void playHandler(){
-        mp3Player.play();
+        if(mp3Player.getPlay()){
+            mp3Player.pause();
+        }else{
+            mp3Player.play();
+        }
         mp3Player.setPlay();
+    }
 
+    public void skipHandler(){
+        mp3Player.skip();
     }
 }

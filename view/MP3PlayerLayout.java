@@ -45,7 +45,7 @@ public class MP3PlayerLayout extends BorderPane{
         this.setCenter(coverBox);
 
         //BottomLayout
-        this.setBottom(new BottomLayout(border,mp3Player,viewController));
+        this.setBottom(new BottomLayout(border,viewController));
 
     }
 

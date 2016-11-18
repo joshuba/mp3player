@@ -42,7 +42,11 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        mp3Player.stop();
+    }
 
     public static void main(String[] args) {
         launch(args);
